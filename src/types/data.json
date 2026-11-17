@@ -1,24 +1,23 @@
 [
-  {
-    "name": "Christmas ball",
-    "cost": 15,
-    "amount": 10,
-    "image": "/gifts/christmas-ball.png",
-    "category": "ornaments"
-  },
-  {
-    "name": "Chocolate Box",
-    "cost": 8,
-    "amount": 20,
-    "image": "/gifts/chocolate.jpg",
-    "category": "food"
-  }
-  ,
-  {
-    "name": "Construction set \"Little Santa\" (181 pieces)",
-    "cost": 4,
-    "amount": 25,
-    "image": "/gifts/constructor-santa.jpg",
-    "category": "diy"
-  }
+    {
+        "name": "Christmas ball",
+        "cost": 15,
+        "amount": 10,
+        "image": "/gifts/christmas-ball.png",
+        "category": "ornaments"
+    },
+    {
+        "name": "Chocolate Box",
+        "cost": 8,
+        "amount": 20,
+        "image": "/gifts/chocolate.jpg",
+        "category": "food"
+    },
+    {
+        "name": "Construction set \"Little Santa\" (181 pieces)",
+        "cost": 4,
+        "amount": 25,
+        "image": "/gifts/constructor-santa.jpg",
+        "category": "diy"
+    }
 ]

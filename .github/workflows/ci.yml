@@ -15,17 +15,6 @@ jobs:
         with:
           node-version: '24.x'
           cache: npm
-
-      - name: Check Node and npm versions
-        run: |
-          node --version
-          npm --version
-          npm config get omit
-          npm config get optional
-      - name: Check lockfile dependencies
-        run: |
-          npm ls @emnapi/core @emnapi/runtime --package-lock-only || true
-          npm ls @rolldown/binding-wasm32-wasi --package-lock-only || true
       - run: npm ci
       - run: npm run build
       - run: npm test
