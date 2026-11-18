@@ -1,4 +1,4 @@
-import './styles/style.css';
+import './styles/styles.css';
 import { initRouter } from './router/router';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
