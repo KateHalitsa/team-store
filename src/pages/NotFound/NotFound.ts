@@ -1,10 +1,16 @@
+import { createEl } from '../../utils/dom';
+
 export function NotFound(): HTMLElement {
-    const section = document.createElement('section');
-    section.className = 'not-found';
-    section.innerHTML = `
-    <h1>Page not found</h1>
-    <p>The page you are looking for does not exist.</p>
-    <a href="/" data-link>Back to home</a>
-  `;
+    const section = createEl('section', { className: 'not-found' });
+
+    const homeLink = createEl('a', { text: 'Back to home' });
+    homeLink.href = '/';
+    homeLink.dataset.link = '';
+
+    section.append(
+        createEl('h1', { text: 'Page not found' }),
+        createEl('p', { text: 'The page you are looking for does not exist.' }),
+        homeLink
+    );
     return section;
 }

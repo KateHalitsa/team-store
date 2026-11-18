@@ -1,6 +1,7 @@
+import { createEl } from '../../utils/dom';
+
 export function AboutUs(): HTMLElement {
-    const section = document.createElement('section');
-    section.className = 'about';
-    section.innerHTML = '<h1>About Us</h1>';
+    const section = createEl('section', { className: 'about' });
+    section.append(createEl('h1', { text: 'About Us' }));
     return section;
 }

@@ -1,6 +1,7 @@
+import { createEl } from '../../utils/dom';
+
 export function Shop(): HTMLElement {
-    const section = document.createElement('section');
-    section.className = 'shop';
-    section.innerHTML = '<h1>Shop</h1>';
+    const section = createEl('section', { className: 'shop' });
+    section.append(createEl('h1', { text: 'Shop' }));
     return section;
 }
