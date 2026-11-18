@@ -1,4 +1,4 @@
-import './style.css';
+import './styles/style.css';
 
 const heading = document.createElement('h1');
 

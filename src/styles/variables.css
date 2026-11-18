@@ -1,0 +1,18 @@
+:root {
+    /* Brand palette */
+    --color-forest: #173d32;
+    --color-burgundy: #a52e36;
+    --color-cream: #f6f0e5;
+    --color-gold: #d5b875;
+    --color-white: #ffffff;
+
+    /* Supporting tones */
+    --color-gold-light: #e9d5a3;
+    --color-divider: #527365;
+    --color-beige-text: #d9c9a9;
+    --color-green-dark-text: #254638;
+    --color-brown-text: #79634d;
+
+    /* Typography */
+    --font-main: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
