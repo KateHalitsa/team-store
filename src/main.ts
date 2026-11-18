@@ -1,7 +1,8 @@
 import './styles/style.css';
+import { initRouter } from './router/router';
 
-const heading = document.createElement('h1');
+const app = document.querySelector<HTMLDivElement>('#app')!;
+const main = document.createElement('main');
 
-heading.textContent = 'Hello world';
-
-document.body.prepend(heading);
+app.append(main);
+initRouter(main);
