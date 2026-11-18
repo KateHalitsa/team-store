@@ -33,7 +33,9 @@ export function initRouter(root: HTMLElement): void {
 
     document.addEventListener('click', (event) => {
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return;
-        const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[data-link]');
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+        const link = target.closest<HTMLAnchorElement>('a[data-link]');
         if (!link) return;
         event.preventDefault();
         navigate(link.getAttribute('href') ?? '/');
