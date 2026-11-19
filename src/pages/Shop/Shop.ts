@@ -1,4 +1,4 @@
-import { ProductCard } from '../../components/ProductCard/ProductCard';
+import { AddCards } from '../../components/AddCards/AddCards';
 import productsData from '../../data/products.json';
 import type { Gift } from '../../types/types';
 
@@ -9,10 +9,18 @@ export function Shop() {
     shop.classList.add('shop');
     const catalog = document.createElement('div');
     catalog.classList.add('catalog');
-    products.forEach((product: Gift) => {
-        const card = ProductCard(product);
-        catalog.append(card);
+
+    let batch = 0;
+
+    const showMoreBtn = document.createElement('button');
+    showMoreBtn.classList.add('show-more-btn');
+    showMoreBtn.textContent = 'More';
+    const fillTheСatalog = AddCards(products, showMoreBtn);
+    batch = fillTheСatalog(batch, catalog);
+    showMoreBtn.addEventListener('click', () => {
+        batch = fillTheСatalog(batch, catalog);
     });
-    shop.append(catalog);
+
+    shop.append(catalog, showMoreBtn);
     document.body.append(shop);
 }

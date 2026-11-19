@@ -1,6 +1,7 @@
 .shop{
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin: auto;
     max-width: 1440px;
 }
@@ -10,4 +11,20 @@
     flex-wrap: wrap;
     max-width: 910px;
     margin: auto 0;
+}
+.show-more-btn{
+  margin: auto;
+  margin-top: 10px;
+  width: 90px;
+  border-radius: 25px;
+  font-size: large;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.shop button{
+  height: 50px;
+  flex-shrink: 0;
+  background-color: var(--color-burgundy);
+  color: var(--color-white);
+  border: none;
 }
