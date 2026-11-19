@@ -11,6 +11,7 @@ export function ProductCard(product: Gift) {
     const img = document.createElement('img');
     img.classList.add('gift-img');
     img.src = product.image;
+    img.alt = product.name;
 
     const specifications = document.createElement('div');
     specifications.classList.add('specifications');
@@ -28,12 +29,18 @@ export function ProductCard(product: Gift) {
     const cost = document.createElement('p');
     cost.classList.add('cost');
     cost.textContent = `${product.cost}$`;
+
     const addToTheCartBtn = document.createElement('button');
     addToTheCartBtn.classList.add('add-to-the-cart-btn');
     addToTheCartBtn.textContent = 'Add to cart';
+    addToTheCartBtn.disabled = status === ProductStatus.outOfStock;
 
-    specifications.append(amountStatus, giftName, cost);
-    card.append(img, specifications, addToTheCartBtn);
+    const footer = document.createElement('div');
+    footer.classList.add('card-footer');
+    footer.append(cost, addToTheCartBtn);
+
+    specifications.append(amountStatus, giftName);
+    card.append(img, specifications, footer);
     return card;
 }
 function getAmountStatus(amount: number) {
