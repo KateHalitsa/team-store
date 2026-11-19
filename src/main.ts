@@ -1,6 +1,9 @@
-import { Shop } from './pages/Shop/Shop';
-import './styles/style.css';
-import './components/ProductCard/ProductCard.css';
-import './pages/Shop/Shop.css';
+import './styles/styles.css';
+import { Header } from './components/Header/Header';
+import { initRouter } from './router/router';
 
-Shop();
+const app = document.querySelector<HTMLDivElement>('#app')!;
+const main = document.createElement('main');
+
+app.append(Header(), main);
+initRouter(main);
