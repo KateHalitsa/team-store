@@ -1,0 +1,10 @@
+.shop{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: 1440px;
+}
+.catalog{
+    display: flex;
+    gap: 20px;
+}

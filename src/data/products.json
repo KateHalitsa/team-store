@@ -1,5 +1,6 @@
 [
     {
+        "id": "christmas-ball-001",
         "name": "Christmas ball",
         "cost": 15,
         "amount": 10,
@@ -7,17 +8,19 @@
         "category": "ornaments"
     },
     {
+        "id": "chocolate-box-001",
         "name": "Chocolate Box",
         "cost": 8,
-        "amount": 20,
+        "amount": 0,
         "image": "/gifts/chocolate.jpg",
         "category": "food"
     },
     {
+        "id": "construction-set-little-santa-181-pieces-001",
         "name": "Construction set \"Little Santa\" (181 pieces)",
         "cost": 4,
-        "amount": 25,
+        "amount": 2,
         "image": "/gifts/constructor-santa.jpg",
-        "category": "diy"
+        "category": "toys"
     }
 ]

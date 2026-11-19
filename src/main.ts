@@ -1,7 +1,6 @@
-import './style.css';
+import { Shop } from './pages/Shop/Shop';
+import './styles/style.css';
+import './components/ProductCard/ProductCard.css';
+import './pages/Shop/Shop.css';
 
-const heading = document.createElement('h1');
-
-heading.textContent = 'Hello world';
-
-document.body.prepend(heading);
+Shop();
