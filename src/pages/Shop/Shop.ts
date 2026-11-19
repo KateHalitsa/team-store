@@ -1,12 +1,14 @@
 import { AddCards } from '../../components/AddCards/AddCards';
 import productsData from '../../data/products.json';
 import type { Gift } from '../../types/types';
-
+import { createEl } from '../../utils/dom';
+import '../../components/ProductCard/ProductCard.css';
+import './Shop.css';
 const products = productsData as Gift[];
 
-export function Shop() {
-    const shop = document.createElement('section');
-    shop.classList.add('shop');
+export function Shop(): HTMLElement {
+    const shop = createEl('section', { className: 'shop' });
+    shop.append(createEl('h1', { text: 'Shop' }));
     const catalog = document.createElement('div');
     catalog.classList.add('catalog');
 
@@ -23,4 +25,5 @@ export function Shop() {
 
     shop.append(catalog, showMoreBtn);
     document.body.append(shop);
+    return shop;
 }
