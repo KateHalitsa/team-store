@@ -1,5 +1,6 @@
 [
     {
+        "id": "christmas-ball-001",
         "name": "Christmas ball",
         "cost": 15,
         "amount": 10,
@@ -7,17 +8,174 @@
         "category": "ornaments"
     },
     {
+        "id": "bullfinch-christmas-tree-ornament-001",
+        "name": "\"Bullfinch\" Christmas tree ornament",
+        "cost": 15,
+        "amount": 10,
+        "image": "/gifts/Elochnaya_igrushka_Snegir.jpg",
+        "category": "ornaments"
+    },
+    {
+        "id": "musical-new-year-decoration-carousel-001",
+        "name": "Musical New Year decoration \"Carousel\"",
+        "cost": 50,
+        "amount": 4,
+        "image": "/gifts/product-item1.png",
+        "category": "toys"
+    },
+    {
+        "id": "casual-rabbit-001",
+        "name": "Casual rabbit",
+        "cost": 15,
+        "amount": 10,
+        "image": "/gifts/product-item3.png",
+        "category": "toys"
+    },
+    {
+        "id": "chocolate-box-001",
         "name": "Chocolate Box",
         "cost": 8,
-        "amount": 20,
+        "amount": 0,
         "image": "/gifts/chocolate.jpg",
         "category": "food"
     },
     {
+        "id": "forest-tales-glass-serving-dish-150-mm-001",
+        "name": "\"Forest Tales\" glass serving dish (150 mm)",
+        "cost": 8,
+        "amount": 6,
+        "image": "/gifts/Blyudo_servirovochnoe_steklyannoe_Skazki_lesa.jpg",
+        "category": "accessories"
+    },
+    {
+        "id": "forest-tales-glass-serving-dish-150-mm-001",
+        "name": "\"Happiness in Tangerines\" ceramic mug (400 ml)",
+        "cost": 8,
+        "amount": 0,
+        "image": "/gifts/Kruzhka_keramicheskaya_Schaste_v_mandarinkah_400_ml.jpg",
+        "category": "accessories"
+    },
+    {
+        "id": "forest-tales-glass-serving-dish-150-mm-001",
+        "name": "\"Little Raccoon\" ceramic mug (400 ml)",
+        "cost": 8,
+        "amount": 0,
+        "image": "/gifts/Kruzhka_keramicheskaya_Enotik_400_ml.jpg",
+        "category": "accessories"
+    },
+    {
+        "id": "forest-tales-glass-serving-dish-150-mm-001",
+        "name": "\"Squirrel\" ceramic mug (400 ml)",
+        "cost": 8,
+        "amount": 5,
+        "image": "/gifts/Kruzhka_keramicheskaya_Belochka_400_ml.jpg",
+        "category": "accessories"
+    },
+    {
+        "id": "forest-tales-glass-serving-dish-150-mm-001",
+        "name": "\"Happiness in Tangerines\" ceramic mug (400 ml)",
+        "cost": 8,
+        "amount": 12,
+        "image": "/gifts/Kruzhka_keramicheskaya_Roryachego_Novogo_goda_400_ml.jpg",
+        "category": "accessories"
+    },
+    {
+        "id": "new-year's-miracle-glass-serving-platter-190-mm-white-and-red-001",
+        "name": "\"New Year's Miracle\" glass serving platter (190 mm; white and red)",
+        "cost": 15,
+        "amount": 7,
+        "image": "/gifts/product-item4.jpg",
+        "category": "accessories"
+    },
+    {
+        "id": "snow-globe-001",
+        "name": "Snow globe",
+        "cost": 100,
+        "amount": 7,
+        "image": "/gifts/product-item5.jpg",
+        "category": "accessories"
+    },
+    {
+        "id": "сhristmas-tree-ornament-ballerina-in-white-001",
+        "name": "Christmas tree ornament — ballerina in white",
+        "cost": 15,
+        "amount": 10,
+        "image": "/gifts/product-item7.jpg",
+        "category": "ornaments"
+    },
+    {
+        "id": "tits-christmas-tree-ornament-001",
+        "name": "\"Tits\" Christmas tree ornament",
+        "cost": 15,
+        "amount": 10,
+        "image": "/gifts/product-item8.jpg",
+        "category": "ornaments"
+    },
+    {
+        "id": "koopman-silver-plastic-owl-christmas-tree-toy-10cm-001",
+        "name": "KOOPMAN Silver Plastic Owl Christmas Tree Toy, 10cm",
+        "cost": 15,
+        "amount": 10,
+        "image": "/gifts/product-item9.jpg",
+        "category": "ornaments"
+    },
+    {
+        "id": "gray-white-plaster-owl-christmas-tree-toy-8cm-001",
+        "name": "GRAY White Plaster Owl Christmas Tree Toy, 8cm",
+        "cost": 15,
+        "amount": 10,
+        "image": "/gifts/product-item10.jpg",
+        "category": "ornaments"
+    },
+    {
+        "id": "rocking-horse-001",
+        "name": "Rocking Horse",
+        "cost": 15,
+        "amount": 10,
+        "image": "/gifts/product-item11.jpg",
+        "category": "ornaments"
+    },
+    {
+        "id": "nutcracker-hanging-ornament-001",
+        "name": "Nutcracker Hanging Ornament",
+        "cost": 15,
+        "amount": 10,
+        "image": "/gifts/product-item12.jpg",
+        "category": "ornaments"
+    },
+
+    {
+        "id": "christmas-tree-candle-001",
+        "name": "\"Christmas Tree\" candle",
+        "cost": 5,
+        "amount": 7,
+        "image": "/gifts/product-item6.jpg",
+        "category": "accessories"
+    },
+    
+    {
+        "id": "koopman-cat-dogs-christmas-tree-ornament-001",
+        "name": "KOOPMAN Cat/Dogs Christmas Tree-Ornament",
+        "cost": 5,
+        "amount": 7,
+        "image": "/gifts/product-item13.jpg",
+        "category": "ornaments"
+    },
+
+     {
+        "id": "snow-globe-001",
+        "name": "\"Cranberry Marshmallow\" decorative candle",
+        "cost": 3,
+        "amount": 7,
+        "image": "/gifts/Svecha_dekorativnaya_Cranberry_Marshmellow.jpg",
+        "category": "accessories"
+    },
+    {
+        "id": "construction-set-little-santa-181-pieces-001",
         "name": "Construction set \"Little Santa\" (181 pieces)",
         "cost": 4,
-        "amount": 25,
+        "amount": 2,
         "image": "/gifts/constructor-santa.jpg",
-        "category": "diy"
+        "category": "toys"
     }
 ]
