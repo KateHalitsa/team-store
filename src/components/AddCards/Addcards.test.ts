@@ -27,7 +27,7 @@ describe('AddCards', () => {
         const button = document.createElement('button');
         const catalog = document.createElement('div');
 
-        const addCards = AddCards(products, button);
+        const addCards = AddCards(products, button, '');
 
         const nextBatch = addCards(0, catalog);
 
@@ -43,7 +43,7 @@ describe('AddCards', () => {
         const button = document.createElement('button');
         const catalog = document.createElement('div');
 
-        const addCards = AddCards(products, button);
+        const addCards = AddCards(products, button, '');
 
         addCards(0, catalog);
         const nextBatch = addCards(1, catalog);
@@ -60,7 +60,7 @@ describe('AddCards', () => {
         const button = document.createElement('button');
         const catalog = document.createElement('div');
 
-        const addCards = AddCards(products, button);
+        const addCards = AddCards(products, button, '');
 
         const firstBatch = addCards(0, catalog);
 
