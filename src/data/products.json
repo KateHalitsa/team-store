@@ -48,7 +48,7 @@
         "category": "accessories"
     },
     {
-        "id": "forest-tales-glass-serving-dish-150-mm-001",
+        "id": "happiness-in-tangerines-ceramic-mug-400-ml-001",
         "name": "\"Happiness in Tangerines\" ceramic mug (400 ml)",
         "cost": 8,
         "amount": 0,
@@ -56,7 +56,7 @@
         "category": "accessories"
     },
     {
-        "id": "forest-tales-glass-serving-dish-150-mm-001",
+        "id": "little-raccoon-ceramic-mug-400-ml-001",
         "name": "\"Little Raccoon\" ceramic mug (400 ml)",
         "cost": 8,
         "amount": 0,
@@ -64,7 +64,7 @@
         "category": "accessories"
     },
     {
-        "id": "forest-tales-glass-serving-dish-150-mm-001",
+        "id": "squirrel-ceramic-mug-400-ml-001",
         "name": "\"Squirrel\" ceramic mug (400 ml)",
         "cost": 8,
         "amount": 5,
@@ -72,15 +72,15 @@
         "category": "accessories"
     },
     {
-        "id": "forest-tales-glass-serving-dish-150-mm-001",
-        "name": "\"Happiness in Tangerines\" ceramic mug (400 ml)",
+        "id": "hot-new-year-ceramic-mug-400-ml-001",
+        "name": "\"Hot New Year\" ceramic mug (400 ml)",
         "cost": 8,
         "amount": 12,
         "image": "/gifts/Kruzhka_keramicheskaya_Roryachego_Novogo_goda_400_ml.jpg",
         "category": "accessories"
     },
     {
-        "id": "new-year's-miracle-glass-serving-platter-190-mm-white-and-red-001",
+        "id": "new-years-miracle-glass-serving-platter-190-mm-white-and-red-001",
         "name": "\"New Year's Miracle\" glass serving platter (190 mm; white and red)",
         "cost": 15,
         "amount": 7,
@@ -96,7 +96,7 @@
         "category": "accessories"
     },
     {
-        "id": "сhristmas-tree-ornament-ballerina-in-white-001",
+        "id": "christmas-tree-ornament-ballerina-in-white-001",
         "name": "Christmas tree ornament — ballerina in white",
         "cost": 15,
         "amount": 10,
@@ -143,7 +143,6 @@
         "image": "/gifts/product-item12.jpg",
         "category": "ornaments"
     },
-
     {
         "id": "christmas-tree-candle-001",
         "name": "\"Christmas Tree\" candle",
@@ -152,7 +151,6 @@
         "image": "/gifts/product-item6.jpg",
         "category": "accessories"
     },
-    
     {
         "id": "koopman-cat-dogs-christmas-tree-ornament-001",
         "name": "KOOPMAN Cat/Dogs Christmas Tree-Ornament",
@@ -161,9 +159,8 @@
         "image": "/gifts/product-item13.jpg",
         "category": "ornaments"
     },
-
-     {
-        "id": "snow-globe-001",
+    {
+        "id": "cranberry-marshmallow-decorative-candle-001",
         "name": "\"Cranberry Marshmallow\" decorative candle",
         "cost": 3,
         "amount": 7,
