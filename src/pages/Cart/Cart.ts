@@ -3,8 +3,7 @@ import { calculateOrderTotal, isValidPromo, type CartItem } from '../../cart/car
 import { createEl } from '../../utils/dom';
 import './Cart.css';
 
-const formatPrice = (n: number) => `${Number(n.toFixed(2))}$`;
-
+const formatPrice = (n: number) => (Number.isInteger(n) ? `${n}$` : `${n.toFixed(2)}$`);
 function createButton(text: string, action: string): HTMLButtonElement {
     const button = createEl('button', { text });
     button.dataset.action = action;
@@ -26,6 +25,7 @@ function createRow(item: CartItem): HTMLElement {
 
     const decrease = createButton('−', 'dec');
     decrease.setAttribute('aria-label', 'Decrease quantity');
+    decrease.disabled = item.quantity <= 1;
     const increase = createButton('+', 'inc');
     increase.setAttribute('aria-label', 'Increase quantity');
     increase.disabled = item.quantity >= item.amount;
