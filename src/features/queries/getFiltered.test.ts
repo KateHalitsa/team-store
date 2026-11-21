@@ -6,6 +6,9 @@ const products: Gift[] = [
     { id: 'apple', name: 'Apple', cost: 1, amount: 5, image: 'apple.png', category: 'food' },
     { id: 'banana', name: 'Banana', cost: 2, amount: 3, image: 'banana.png', category: 'food' },
     { id: 'apple-pie', name: 'Apple pie', cost: 3, amount: 2, image: 'pie.png', category: 'food' },
+    { id: 'teddy-bear', name: 'Teddy Bear', cost: 10, amount: 5, image: 'bear.png', category: 'toys' },
+    { id: 'yo-yo', name: 'Yo-yo', cost: 2, amount: 3, image: 'yo-yo.png', category: 'toys' },
+    { id: 'candle', name: 'Candle', cost: 3, amount: 2, image: 'candle.png', category: 'accessories' },
 ];
 
 describe('getFiltered', () => {
@@ -23,5 +26,8 @@ describe('getFiltered', () => {
 
     it('performs case-insensitive search', () => {
         expect(getFiltered(products, 'BANANA')).toEqual([products[1]]);
+    });
+    it('returns products from the "toys" category', () => {
+        expect(getFiltered(products, '', 'toys')).toBe(2);
     });
 });
