@@ -1,6 +1,7 @@
 import { cartStore } from '../../cart/cartStore';
 import { calculateOrderTotal, isValidPromo, type CartItem } from '../../cart/cart';
 import { createEl } from '../../utils/dom';
+import './Cart.css';
 
 const formatPrice = (n: number) => `${Number(n.toFixed(2))}$`;
 
@@ -17,8 +18,8 @@ function createRow(item: CartItem): HTMLElement {
     const image = createEl('img');
     image.src = item.image;
     image.alt = item.name;
-    image.width = 64;
-    image.height = 64;
+    image.width = 80;
+    image.height = 80;
 
     const name = createEl('span', { className: 'cart__name', text: item.name });
     const price = createEl('span', { className: 'cart__price', text: formatPrice(item.cost) });
@@ -38,6 +39,12 @@ function createRow(item: CartItem): HTMLElement {
     });
 
     row.append(image, name, price, quantity, lineTotal, createButton('Remove', 'remove'));
+    return row;
+}
+
+function createSummaryRow(label: string, value: string, modifier = ''): HTMLElement {
+    const row = createEl('p', { className: `cart__summary-row ${modifier}`.trim() });
+    row.append(createEl('span', { text: label }), createEl('span', { text: value }));
     return row;
 }
 
@@ -64,6 +71,7 @@ export function Cart(): HTMLElement {
         input.type = 'text';
         input.placeholder = 'Promo code';
         input.value = promoDraft;
+        input.setAttribute('aria-label', 'Promo code');
 
         const promo = createEl('div', { className: 'cart__promo' });
         promo.append(input, createButton('Apply', 'apply-promo'));
@@ -82,13 +90,14 @@ export function Cart(): HTMLElement {
         }
 
         const summary = createEl('div', { className: 'cart__summary' });
-        summary.append(createEl('p', { text: `Subtotal: ${formatPrice(subtotal)}` }));
+        summary.append(
+            createEl('h2', { className: 'cart__summary-title', text: 'Order summary' }),
+            createSummaryRow('Subtotal', formatPrice(subtotal))
+        );
         if (discount > 0) {
-            summary.append(createEl('p', { text: `Discount: −${formatPrice(discount)}` }));
+            summary.append(createSummaryRow('Discount', `−${formatPrice(discount)}`, 'cart__summary-row--discount'));
         }
-        const totalLine = createEl('p');
-        totalLine.append(createEl('strong', { text: `Total: ${formatPrice(total)}` }));
-        summary.append(totalLine);
+        summary.append(createSummaryRow('Total', formatPrice(total), 'cart__summary-row--total'));
 
         root.replaceChildren(title, list, promo, summary);
     };
