@@ -1,4 +1,7 @@
 import type { Gift } from '../../types/types';
+import { cartStore } from '../../cart/cartStore';
+import { showToast } from '../../utils/toast';
+
 export const ProductStatus = {
     inStock: 'In Stock',
     lowStock: 'Low Stock',
@@ -34,6 +37,11 @@ export function ProductCard(product: Gift) {
     addToTheCartBtn.classList.add('add-to-the-cart-btn');
     addToTheCartBtn.textContent = 'Add to cart';
     addToTheCartBtn.disabled = status === ProductStatus.outOfStock;
+    addToTheCartBtn.addEventListener('click', () => {
+        cartStore.add(product);
+
+        showToast(`${product.name} added to cart!`);
+    });
 
     const footer = document.createElement('div');
     footer.classList.add('card-footer');
