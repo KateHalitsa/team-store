@@ -46,7 +46,7 @@
 
 .search-input{
   flex: 1;
-  max-width: 250px;
+  max-width: 230px;
   height: 40px;
   }
 
@@ -156,7 +156,8 @@
 }
 .bottom-queries{
   display: flex;
-  gap:10px
+  gap:10px;
+  justify-content: space-between;
 }
 .queries select{
     width: 90px;
@@ -177,4 +178,14 @@ option:hover{
   background-color: var(--color-gold);
   color: var(--color-white);
 
+}
+.clean-btn{
+  width: 55px;
+  height: 55px !important;
+  background-image: url("/icons/image.png");
+  background-size: 75%;
+  background-position-x: 57%;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  border-radius: 30px;
 }

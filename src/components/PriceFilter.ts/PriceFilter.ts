@@ -133,5 +133,12 @@ export function PriceFilter(onChange: () => void) {
         updateTrack: () => updateTrack(),
         getMinPrice: () => Number(inputFrom.value),
         getMaxPrice: () => Number(inputTo.value),
+        reset: () => {
+            inputFrom.value = '10';
+            inputTo.value = '150';
+            minRange.value = '10';
+            maxRange.value = '150';
+            updateTrack();
+        },
     };
 }

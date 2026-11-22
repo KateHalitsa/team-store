@@ -51,6 +51,9 @@ export function Shop(): HTMLElement {
         option.textContent = sort[1];
         select.append(option);
     });
+
+    const cleanBtn = createEl('button', { className: 'clean-btn' });
+
     function renderCatalog() {
         catalog.replaceChildren();
         batch = 0;
@@ -71,7 +74,7 @@ export function Shop(): HTMLElement {
     }
 
     const priceFilter = PriceFilter(renderCatalog);
-    bottomQueries.append(searchInput, priceFilter.element, select);
+    bottomQueries.append(searchInput, priceFilter.element, select, cleanBtn);
     queries.append(switcher, bottomQueries);
     shop.append(queries);
 
@@ -92,6 +95,20 @@ export function Shop(): HTMLElement {
 
     priceFilter.updateTrack();
 
+    cleanBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        select.value = 'default';
+
+        const categoryInput = document.querySelector<HTMLInputElement>('input[name="options"][value="all"]');
+
+        if (categoryInput) {
+            categoryInput.checked = true;
+        }
+
+        priceFilter.reset();
+
+        renderCatalog();
+    });
     shop.append(catalog, showMoreBtn);
     document.body.append(shop);
 
