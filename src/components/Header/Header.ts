@@ -1,4 +1,6 @@
 import './Header.css';
+import { cartStore } from '../../cart/cartStore';
+import { getCartCount } from '../../cart/cart';
 import { createEl } from '../../utils/dom';
 
 type NavLink = { href: string; label: string; showBadge?: boolean };
@@ -25,12 +27,19 @@ export function Header(): HTMLElement {
     const nav = createEl('nav', { className: 'header__nav' });
     nav.setAttribute('aria-label', 'Main navigation');
 
+    let cartBadge: HTMLElement | null = null;
+
     links.forEach(({ href, label, showBadge }) => {
         const link = createEl('a', { className: 'header__link', text: label });
         link.href = href;
         link.dataset.link = '';
+
         if (showBadge) {
-            link.append(createEl('span', { className: 'header__badge', text: '0' }));
+            cartBadge = createEl('span', {
+                className: 'header__badge',
+                text: '0',
+            });
+            link.append(cartBadge);
         }
         nav.append(link);
     });
@@ -50,6 +59,14 @@ export function Header(): HTMLElement {
             }
         });
     };
+
+    const updateCount = (): void => {
+        if (!cartBadge) return;
+        cartBadge.textContent = String(getCartCount(cartStore.getState().items));
+    };
+
+    updateCount();
+    cartStore.subscribe(updateCount);
 
     window.addEventListener('routechange', updateActive);
     updateActive();
