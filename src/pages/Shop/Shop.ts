@@ -31,12 +31,14 @@ export function Shop(): HTMLElement {
         catalog.replaceChildren();
         batch = 0;
         showMoreBtn.hidden = false;
+        message.hidden = true;
 
         const category = switcher.querySelector<HTMLInputElement>('input[name="options"]:checked')?.value;
 
         fillTheCatalog = AddCards(
             products,
             showMoreBtn,
+            message,
             searchInput.value,
             category,
             priceFilter.getMinPrice(),
@@ -58,8 +60,11 @@ export function Shop(): HTMLElement {
     showMoreBtn.classList.add('show-more-btn');
     showMoreBtn.textContent = 'More';
 
+    const message = createEl('div', { className: 'catalog-message' });
+    message.textContent = 'Nothing found';
+
     let batch = 0;
-    let fillTheCatalog = AddCards(products, showMoreBtn, searchInput.value);
+    let fillTheCatalog = AddCards(products, showMoreBtn, message, searchInput.value);
 
     showMoreBtn.addEventListener('click', () => {
         batch = fillTheCatalog(batch, catalog);
@@ -85,7 +90,7 @@ export function Shop(): HTMLElement {
 
         renderCatalog();
     });
-    shop.append(catalog, showMoreBtn);
+    shop.append(catalog, showMoreBtn, message);
     document.body.append(shop);
 
     renderCatalog();

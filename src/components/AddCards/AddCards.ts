@@ -5,6 +5,7 @@ import { ProductCard } from '../ProductCard/ProductCard';
 export function AddCards(
     products: Gift[],
     button: HTMLButtonElement,
+    message: HTMLDivElement,
     search: string,
     category: string = 'all',
     minPrice: number = 0,
@@ -20,6 +21,10 @@ export function AddCards(
         });
         if (batch === amountOfBatch) {
             button.hidden = true;
+        }
+        if (filtredproducts.length === 0) {
+            button.hidden = true;
+            message.hidden = false;
         }
         return batch;
     };
