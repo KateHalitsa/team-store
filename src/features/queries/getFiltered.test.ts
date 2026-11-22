@@ -28,6 +28,12 @@ describe('getFiltered', () => {
         expect(getFiltered(products, 'BANANA')).toEqual([products[1]]);
     });
     it('returns products from the "toys" category', () => {
-        expect(getFiltered(products, '', 'toys')).toBe(2);
+        expect(getFiltered(products, '', 'toys').length).toBe(2);
+    });
+    it('returns products with a price between 2 and 5', () => {
+        expect(getFiltered(products, '', 'all', 2, 5).length).toBe(4);
+    });
+    it("doesn't return products out of range", () => {
+        expect(getFiltered(products, '', 'all', 11, 50)).toEqual([]);
     });
 });
