@@ -4,6 +4,7 @@ import type { Gift } from '../../types/types';
 import { createEl } from '../../utils/dom';
 import '../../components/ProductCard/ProductCard.css';
 import './Shop.css';
+import { PriceFilter } from '../../components/PriceFilter.ts/PriceFilter';
 
 const products = productsData as Gift[];
 
@@ -17,6 +18,7 @@ export function Shop(): HTMLElement {
     catalog.classList.add('catalog');
 
     const queries = createEl('div', { className: 'queries' });
+    const bottomQueries = createEl('div', { className: 'bottom-queries' });
 
     const searchInput = createEl('input', { className: 'search-input' });
     searchInput.placeholder = 'Search...';
@@ -37,7 +39,28 @@ export function Shop(): HTMLElement {
         });
         switcher.append(input, label);
     });
-    queries.append(switcher, searchInput);
+
+    function renderCatalog() {
+        catalog.replaceChildren();
+        batch = 0;
+        showMoreBtn.hidden = false;
+        const selected = document.querySelector<HTMLInputElement>('input[name="options"]:checked');
+        const label = document.querySelector(`label[for="${selected?.id}"]`);
+
+        fillTheCatalog = AddCards(
+            products,
+            showMoreBtn,
+            searchInput.value,
+            label?.textContent,
+            priceFilter.getMinPrice(),
+            priceFilter.getMaxPrice()
+        );
+        batch = fillTheCatalog(batch, catalog);
+    }
+
+    const priceFilter = PriceFilter(renderCatalog);
+    bottomQueries.append(searchInput, priceFilter.element);
+    queries.append(switcher, bottomQueries);
     shop.append(queries);
 
     const showMoreBtn = document.createElement('button');
@@ -47,22 +70,13 @@ export function Shop(): HTMLElement {
     let batch = 0;
     let fillTheCatalog = AddCards(products, showMoreBtn, searchInput.value);
 
-    function renderCatalog() {
-        catalog.replaceChildren();
-        batch = 0;
-        showMoreBtn.hidden = false;
-        const selected = document.querySelector<HTMLInputElement>('input[name="options"]:checked');
-        const label = document.querySelector(`label[for="${selected?.id}"]`);
-
-        fillTheCatalog = AddCards(products, showMoreBtn, searchInput.value, label?.textContent);
-        batch = fillTheCatalog(batch, catalog);
-    }
-
     showMoreBtn.addEventListener('click', () => {
         batch = fillTheCatalog(batch, catalog);
     });
 
     searchInput.addEventListener('input', renderCatalog);
+
+    priceFilter.updateTrack();
 
     shop.append(catalog, showMoreBtn);
     document.body.append(shop);

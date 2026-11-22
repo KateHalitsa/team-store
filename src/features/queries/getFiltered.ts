@@ -1,6 +1,12 @@
 import type { Gift } from '../../types/types';
 
-export function getFiltered(products: Gift[], search: string, category: string = 'all') {
+export function getFiltered(
+    products: Gift[],
+    search: string,
+    category: string = 'all',
+    minPrice: number = 0,
+    maxPrice: number = 150
+) {
     let result = products;
 
     if (search) {
@@ -9,6 +15,7 @@ export function getFiltered(products: Gift[], search: string, category: string =
     if (category !== 'all') {
         result = result.filter((p) => p.category === category);
     }
+    result = result.filter((p) => p.cost >= minPrice && p.cost <= maxPrice);
 
     return result;
 }
