@@ -1,4 +1,4 @@
-.shop{
+.shop {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -6,94 +6,146 @@
     max-width: 1440px;
     gap: 10px;
 }
-.catalog{
+
+.catalog {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     max-width: 910px;
     margin: auto 0;
 }
-.show-more-btn{
-  margin: auto;
-  margin-top: 10px;
-  width: 90px;
-  border-radius: 25px;
-  font-size: large;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-.shop button{
-  height: 50px;
-  flex-shrink: 0;
-  background-color: var(--color-burgundy);
-  color: var(--color-white);
-  border: none;
+
+.shop button {
+    height: 50px;
+    flex-shrink: 0;
+    background-color: var(--color-burgundy);
+    color: var(--color-white);
+    border: none;
 }
 
-.queries{
-  display: flex;
-  width: 100%;
-  max-width: 900px;
-  flex-direction: column;
-  gap: 10px;
-}
-.search-input{
-  padding: 10px 12px;
-  border: 1px solid var(--color-gold);
-  border-radius: 20px;
-  font-size: 15px;
+.show-more-btn {
+    margin: 10px auto 0;
+    width: 90px;
+    border-radius: 25px;
+    font-size: large;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.search-input{
-  flex: 1;
-  max-width: 230px;
-  height: 40px;
-  }
-
-.switcher{
-  display: flex;
-  gap: 10px;
-  width: 100%;
-  justify-content: center;
+.queries {
+    --control-h: 40px;
+    display: flex;
+    width: 100%;
+    max-width: 910px;
+    margin-bottom: 14px;
+    flex-direction: column;
+    gap: 16px;
 }
+
+.bottom-queries {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.search-input,
+.queries select,
+.price-inputs input {
+    box-sizing: border-box;
+    height: var(--control-h);
+    border: 1px solid var(--color-gold);
+    border-radius: 20px;
+    background: #fff;
+    font-size: 15px;
+}
+
+.search-input:focus-visible,
+.queries select:focus-visible,
+.price-inputs input:focus-visible {
+    outline: 2px solid var(--color-burgundy);
+    outline-offset: 2px;
+}
+
+.search-input {
+    flex: 1;
+    max-width: 230px;
+    padding: 0 16px;
+}
+
+.switcher {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
 .switcher input[type="radio"] {
-  display: none;
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
 }
+
 .switcher .option-category {
-  padding: 10px 20px;
-  border: 2px solid var(--color-burgundy);
-  border-radius: 20px;
-  background-color: #fff;
-  color: var(--color-burgundy);
-  cursor: pointer;
-  flex: 1;
-  font-size: large;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-align: center;
-  transition: background-color 0.3s, color 0.3s;
+    padding: 10px 20px;
+    border: 2px solid var(--color-burgundy);
+    border-radius: 20px;
+    background-color: #fff;
+    color: var(--color-burgundy);
+    cursor: pointer;
+    flex: 1;
+    font-size: large;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
 }
+
 .switcher label[for="category1"] {
     flex: 0;
 }
-.switcher input[type="radio"]:checked + .option-category {
-  background-color: var(--color-burgundy);
-  color: #fff;
-}
+
+.switcher input[type="radio"]:checked + .option-category,
 .switcher .option-category:hover {
-  background-color: var(--color-burgundy);
-  color: #fff;
+    background-color: var(--color-burgundy);
+    color: #fff;
 }
-.switcher input[type=radio]:disabled + label {
-	background: #efefef;
-	color: #666;
+
+.switcher input[type="radio"]:focus-visible + .option-category {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
 }
-.price-filter{
-      width: 30%;
+
+.switcher input[type="radio"]:disabled + label {
+    background: #efefef;
+    color: #666;
 }
-.price-inputs{
+
+
+.price-filter {
+    width: 30%;
+}
+
+.price-inputs {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-inputs label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+}
+
+.price-inputs input {
+    width: 70px;
+    padding: 0 10px;
+    text-align: center;
 }
 
 .price-sliders {
@@ -106,18 +158,18 @@
     position: absolute;
     top: 50%;
     width: 100%;
-    height: 5px;
+    height: 6px;
     background: #ddd;
-    border-radius: 5px;
+    border-radius: 3px;
     transform: translateY(-50%);
 }
 
 .range-track {
     position: absolute;
     top: 50%;
-    height: 5px;
+    height: 6px;
     background: var(--color-burgundy);
-    border-radius: 5px;
+    border-radius: 3px;
     transform: translateY(-50%);
 }
 
@@ -136,56 +188,57 @@
 .price-sliders input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: var(--color-burgundy);
     border: 2px solid white;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
     cursor: pointer;
     pointer-events: auto;
 }
 
 .price-sliders input[type="range"]::-moz-range-thumb {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: var(--color-burgundy);
     border: 2px solid white;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
     cursor: pointer;
     pointer-events: auto;
 }
-.bottom-queries{
-  display: flex;
-  gap:10px;
-  justify-content: space-between;
-}
-.queries select{
-    width: 90px;
-    height: 30px;
-    border-radius: 10px;
-      display: flex;
+
+.queries select {
+    display: flex;
     align-items: center;
-    background-color: white;
-  }
+    width: 130px;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+
+
 .queries select,
 ::picker(select) {
-  appearance: base-select;
+    appearance: base-select;
 }
-option{
-  color: var(--color-gold);
-}
-option:hover{
-  background-color: var(--color-gold);
-  color: var(--color-white);
 
+option {
+    color: var(--color-burgundy);
 }
-.clean-btn{
-  width: 55px;
-  height: 55px !important;
-  background-image: url("/icons/image.png");
-  background-size: 75%;
-  background-position-x: 57%;
-  background-position-y: center;
-  background-repeat: no-repeat;
-  border-radius: 30px;
+
+option:hover {
+    background-color: var(--color-gold);
+    color: var(--color-white);
+}
+
+.shop .clean-btn {
+    width: 40px;
+    height: 40px;
+    background-image: url("/icons/image.png");
+    background-size: 75%;
+    background-position: 57% center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
 }

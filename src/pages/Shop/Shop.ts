@@ -26,6 +26,8 @@ export function Shop(): HTMLElement {
     const select = SortSelect();
 
     const cleanBtn = createEl('button', { className: 'clean-btn' });
+    cleanBtn.title = 'Clear filters';
+    cleanBtn.setAttribute('aria-label', 'Clear filters');
 
     function renderCatalog() {
         catalog.replaceChildren();
