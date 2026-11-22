@@ -36,4 +36,21 @@ describe('getFiltered', () => {
     it("doesn't return products out of range", () => {
         expect(getFiltered(products, '', 'all', 11, 50)).toEqual([]);
     });
+    it('returns products sorted by price in ascending order', () => {
+        expect(
+            getFiltered(products, '', undefined, undefined, undefined, 'up')
+                .slice(0, 3)
+                .map((product) => product.cost)
+        ).toEqual([products[0].cost, products[1].cost, products[4].cost]);
+    });
+    it('returns products sorted by price in descending order', () => {
+        expect(
+            getFiltered(products, '', undefined, undefined, undefined, 'down')
+                .slice(0, 3)
+                .map((product) => product.cost)
+        ).toEqual([products[3].cost, products[2].cost, products[5].cost]);
+    });
+    it('returns products sorted by default', () => {
+        expect(getFiltered(products, '', undefined, undefined, undefined, 'default')).toEqual(products);
+    });
 });
