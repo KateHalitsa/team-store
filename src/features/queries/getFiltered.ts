@@ -5,7 +5,8 @@ export function getFiltered(
     search: string,
     category: string = 'all',
     minPrice: number = 0,
-    maxPrice: number = 150
+    maxPrice: number = 150,
+    sort: string = 'default'
 ) {
     let result = products;
 
@@ -16,6 +17,11 @@ export function getFiltered(
         result = result.filter((p) => p.category === category);
     }
     result = result.filter((p) => p.cost >= minPrice && p.cost <= maxPrice);
+    if (sort === 'down') {
+        result.sort((a, b) => b.cost - a.cost);
+    } else if (sort === 'up') {
+        result.sort((a, b) => a.cost - b.cost);
+    }
 
     return result;
 }

@@ -158,3 +158,23 @@
   display: flex;
   gap:10px
 }
+.queries select{
+    width: 90px;
+    height: 30px;
+    border-radius: 10px;
+      display: flex;
+    align-items: center;
+    background-color: white;
+  }
+.queries select,
+::picker(select) {
+  appearance: base-select;
+}
+option{
+  color: var(--color-gold);
+}
+option:hover{
+  background-color: var(--color-gold);
+  color: var(--color-white);
+
+}

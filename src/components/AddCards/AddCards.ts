@@ -8,9 +8,10 @@ export function AddCards(
     search: string,
     category: string = 'all',
     minPrice: number = 0,
-    maxPrice: number = 150
+    maxPrice: number = 150,
+    select: string = 'default'
 ) {
-    const filtredproducts = getFiltered(products, search, category, minPrice, maxPrice);
+    const filtredproducts = getFiltered(products, search, category, minPrice, maxPrice, select);
     const amountOfBatch = Math.ceil(filtredproducts.length / 6);
     return function (batch: number, catalog: HTMLDivElement) {
         filtredproducts.slice(batch * 6, ++batch * 6).forEach((product: Gift) => {

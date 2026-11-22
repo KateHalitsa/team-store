@@ -9,6 +9,11 @@ import { PriceFilter } from '../../components/PriceFilter.ts/PriceFilter';
 const products = productsData as Gift[];
 
 const options = ['all', 'ornaments', 'accessories', 'toys', 'food'];
+const sortOptions = [
+    ['default', 'Default'],
+    ['up', 'Price ↑'],
+    ['down', 'Price ↓'],
+];
 
 export function Shop(): HTMLElement {
     const shop = createEl('section', { className: 'shop' });
@@ -39,7 +44,13 @@ export function Shop(): HTMLElement {
         });
         switcher.append(input, label);
     });
-
+    const select = createEl('select');
+    sortOptions.forEach((sort) => {
+        const option = createEl('option');
+        option.value = sort[0];
+        option.textContent = sort[1];
+        select.append(option);
+    });
     function renderCatalog() {
         catalog.replaceChildren();
         batch = 0;
@@ -53,13 +64,14 @@ export function Shop(): HTMLElement {
             searchInput.value,
             label?.textContent,
             priceFilter.getMinPrice(),
-            priceFilter.getMaxPrice()
+            priceFilter.getMaxPrice(),
+            select.value
         );
         batch = fillTheCatalog(batch, catalog);
     }
 
     const priceFilter = PriceFilter(renderCatalog);
-    bottomQueries.append(searchInput, priceFilter.element);
+    bottomQueries.append(searchInput, priceFilter.element, select);
     queries.append(switcher, bottomQueries);
     shop.append(queries);
 
@@ -75,6 +87,8 @@ export function Shop(): HTMLElement {
     });
 
     searchInput.addEventListener('input', renderCatalog);
+
+    select.addEventListener('change', renderCatalog);
 
     priceFilter.updateTrack();
 
