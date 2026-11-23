@@ -1,6 +1,15 @@
 import { createEl } from '../../utils/dom';
 
-export function PriceFilter(onChange: () => void) {
+export function PriceFilter(
+    onChange: () => void,
+    bounds: { min: number; max: number } = {
+        min: 0,
+        max: 100,
+    }
+) {
+    const { min: MIN, max: MAX } = bounds;
+    const minGap = 1;
+
     const priceFilter = createEl('div', { className: 'price-filter' });
     const priceInputs = createEl('div', { className: 'price-inputs' });
 
@@ -12,47 +21,45 @@ export function PriceFilter(onChange: () => void) {
     const inputFrom = createEl('input');
     inputFrom.id = 'minPriceInput';
     inputFrom.type = 'number';
-    inputFrom.value = '10';
-    inputFrom.min = '0';
-    inputFrom.max = '1000';
-    inputFrom.step = '10';
+    inputFrom.min = `${MIN}`;
+    inputFrom.max = `${MAX}`;
+    inputFrom.step = '1';
+    inputFrom.value = `${MIN}`;
     labelFrom.append(inputFrom);
 
     const inputTo = createEl('input');
     inputTo.id = 'maxPriceInput';
     inputTo.type = 'number';
-    inputTo.value = '150';
-    inputTo.min = '0';
-    inputTo.max = '1000';
-    inputTo.step = '10';
+    inputTo.min = `${MIN}`;
+    inputTo.max = `${MAX}`;
+    inputTo.step = '1';
+    inputTo.value = `${MAX}`;
     labelTo.append(inputTo);
 
     priceInputs.append(labelFrom, labelTo);
-    const priceSiders = createEl('div', { className: 'price-sliders' });
+    const priceSliders = createEl('div', { className: 'price-sliders' });
 
     const minRange = createEl('input');
     minRange.id = 'minRange';
     minRange.type = 'range';
-    minRange.value = '10';
-    minRange.min = '0';
-    minRange.max = '200';
-    minRange.step = '10';
+    minRange.min = `${MIN}`;
+    minRange.max = `${MAX}`;
+    minRange.step = '1';
+    minRange.value = `${MIN}`;
 
     const maxRange = createEl('input');
     maxRange.id = 'maxRange';
     maxRange.type = 'range';
-    maxRange.value = '150';
-    maxRange.min = '0';
-    maxRange.max = '200';
-    maxRange.step = '10';
+    maxRange.min = `${MIN}`;
+    maxRange.max = `${MAX}`;
+    maxRange.step = '1';
+    maxRange.value = `${MAX}`;
 
     const sliderTrack = createEl('div', { className: 'slider-track' });
     const rangeTrack = createEl('div', { className: 'range-track' });
 
-    priceSiders.append(sliderTrack, rangeTrack, minRange, maxRange);
-    priceFilter.append(priceInputs, priceSiders);
-
-    const minGap = 10;
+    priceSliders.append(sliderTrack, rangeTrack, minRange, maxRange);
+    priceFilter.append(priceInputs, priceSliders);
 
     function updateTrack() {
         const min = Number(minRange.min);
@@ -121,23 +128,44 @@ export function PriceFilter(onChange: () => void) {
         maxRange.value = `${maxVal}`;
 
         updateTrack();
+        onChange();
+    }
+
+    function previewFromInput() {
+        if (inputFrom.value === '' || inputTo.value === '') return;
+
+        const min = Number(minRange.min);
+        const max = Number(minRange.max);
+        const minVal = Number(inputFrom.value);
+        const maxVal = Number(inputTo.value);
+
+        if (minVal < min || maxVal > max || maxVal - minVal < minGap) return;
+
+        minRange.value = `${minVal}`;
+        maxRange.value = `${maxVal}`;
+        updateTrack();
+        onChange();
     }
 
     minRange.addEventListener('input', syncFromRange);
     maxRange.addEventListener('input', syncFromRange);
 
-    inputFrom.addEventListener('input', syncFromInput);
-    inputTo.addEventListener('input', syncFromInput);
+    inputFrom.addEventListener('input', previewFromInput);
+    inputTo.addEventListener('input', previewFromInput);
+
+    inputFrom.addEventListener('change', syncFromInput);
+    inputTo.addEventListener('change', syncFromInput);
+
     return {
         element: priceFilter,
         updateTrack: () => updateTrack(),
         getMinPrice: () => Number(inputFrom.value),
         getMaxPrice: () => Number(inputTo.value),
         reset: () => {
-            inputFrom.value = '10';
-            inputTo.value = '150';
-            minRange.value = '10';
-            maxRange.value = '150';
+            inputFrom.value = `${MIN}`;
+            inputTo.value = `${MAX}`;
+            minRange.value = `${MIN}`;
+            maxRange.value = `${MAX}`;
             updateTrack();
         },
     };

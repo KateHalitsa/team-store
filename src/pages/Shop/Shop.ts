@@ -9,6 +9,8 @@ import { CategorySwitcher } from '../../components/CategorySwitcher/CategorySwit
 import { SortSelect } from '../../components/SortSelect/SortSelect';
 
 const products = productsData as Gift[];
+const prices = products.map((p) => p.cost);
+const bounds = { min: Math.min(...prices), max: Math.max(...prices) };
 
 export function Shop(): HTMLElement {
     const shop = createEl('section', { className: 'shop' });
@@ -51,7 +53,7 @@ export function Shop(): HTMLElement {
         batch = fillTheCatalog(batch, catalog);
     }
 
-    const priceFilter = PriceFilter(renderCatalog);
+    const priceFilter = PriceFilter(renderCatalog, bounds);
     bottomQueries.append(searchInput, priceFilter.element, select, cleanBtn);
 
     const switcher = CategorySwitcher(renderCatalog);
