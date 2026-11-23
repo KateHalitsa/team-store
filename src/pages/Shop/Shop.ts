@@ -4,26 +4,100 @@ import type { Gift } from '../../types/types';
 import { createEl } from '../../utils/dom';
 import '../../components/ProductCard/ProductCard.css';
 import './Shop.css';
+import { PriceFilter } from '../../components/PriceFilter.ts/PriceFilter';
+import { CategorySwitcher } from '../../components/CategorySwitcher/CategorySwitcher';
+import { SortSelect } from '../../components/SortSelect/SortSelect';
+
 const products = productsData as Gift[];
+const prices = products.map((p) => p.cost);
+const bounds = { min: Math.min(...prices), max: Math.max(...prices) };
 
 export function Shop(): HTMLElement {
     const shop = createEl('section', { className: 'shop' });
     shop.append(createEl('h1', { text: 'Shop' }));
+
     const catalog = document.createElement('div');
     catalog.classList.add('catalog');
 
-    let batch = 0;
+    const queries = createEl('div', { className: 'queries' });
+    const bottomQueries = createEl('div', { className: 'bottom-queries' });
+
+    const searchInput = createEl('input', { className: 'search-input' });
+    searchInput.placeholder = 'Search...';
+
+    const select = SortSelect();
+
+    const cleanBtn = createEl('button', { className: 'clean-btn' });
+    cleanBtn.title = 'Clear filters';
+    cleanBtn.setAttribute('aria-label', 'Clear filters');
+
+    function renderCatalog() {
+        catalog.replaceChildren();
+        batch = 0;
+        showMoreBtn.hidden = false;
+        message.hidden = true;
+
+        const category = switcher.querySelector<HTMLInputElement>('input[name="options"]:checked')?.value;
+
+        fillTheCatalog = AddCards(
+            products,
+            showMoreBtn,
+            message,
+            searchInput.value,
+            category,
+            priceFilter.getMinPrice(),
+            priceFilter.getMaxPrice(),
+            select.value
+        );
+
+        batch = fillTheCatalog(batch, catalog);
+    }
+
+    const priceFilter = PriceFilter(renderCatalog, bounds);
+    bottomQueries.append(searchInput, priceFilter.element, select, cleanBtn);
+
+    const switcher = CategorySwitcher(renderCatalog);
+    queries.append(switcher, bottomQueries);
+    shop.append(queries);
 
     const showMoreBtn = document.createElement('button');
     showMoreBtn.classList.add('show-more-btn');
     showMoreBtn.textContent = 'More';
-    const fillTheСatalog = AddCards(products, showMoreBtn);
-    batch = fillTheСatalog(batch, catalog);
+
+    const message = createEl('div', { className: 'catalog-message' });
+    message.textContent = 'Nothing found';
+
+    let batch = 0;
+    let fillTheCatalog = AddCards(products, showMoreBtn, message, searchInput.value);
+
     showMoreBtn.addEventListener('click', () => {
-        batch = fillTheСatalog(batch, catalog);
+        batch = fillTheCatalog(batch, catalog);
     });
 
-    shop.append(catalog, showMoreBtn);
+    searchInput.addEventListener('input', renderCatalog);
+
+    select.addEventListener('change', renderCatalog);
+
+    priceFilter.updateTrack();
+
+    cleanBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        select.value = 'default';
+
+        const categoryInput = document.querySelector<HTMLInputElement>('input[name="options"][value="all"]');
+
+        if (categoryInput) {
+            categoryInput.checked = true;
+        }
+
+        priceFilter.reset();
+
+        renderCatalog();
+    });
+    shop.append(catalog, showMoreBtn, message);
     document.body.append(shop);
+
+    renderCatalog();
+
     return shop;
 }
