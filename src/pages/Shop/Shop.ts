@@ -7,6 +7,7 @@ import './Shop.css';
 import { PriceFilter } from '../../components/PriceFilter.ts/PriceFilter';
 import { CategorySwitcher } from '../../components/CategorySwitcher/CategorySwitcher';
 import { SortSelect } from '../../components/SortSelect/SortSelect';
+import { createSwitcherSelect } from '../../components/SwitcherSelect/SwitcherSelect';
 
 const products = productsData as Gift[];
 const prices = products.map((p) => p.cost);
@@ -26,6 +27,8 @@ export function Shop(): HTMLElement {
     searchInput.placeholder = 'Search...';
 
     const select = SortSelect();
+
+    const switcherSelect = createSwitcherSelect();
 
     const cleanBtn = createEl('button', { className: 'clean-btn' });
     cleanBtn.title = 'Clear filters';
@@ -54,7 +57,7 @@ export function Shop(): HTMLElement {
     }
 
     const priceFilter = PriceFilter(renderCatalog, bounds);
-    bottomQueries.append(searchInput, priceFilter.element, select, cleanBtn);
+    bottomQueries.append(searchInput, priceFilter.element, select, switcherSelect, cleanBtn);
 
     const switcher = CategorySwitcher(renderCatalog);
     queries.append(switcher, bottomQueries);
@@ -73,25 +76,42 @@ export function Shop(): HTMLElement {
     showMoreBtn.addEventListener('click', () => {
         batch = fillTheCatalog(batch, catalog);
     });
+    switcher.addEventListener('change', (event: Event) => {
+        const target = event.target;
 
+        if (target instanceof HTMLInputElement && target.name === 'options') {
+            switcherSelect.value = target.value;
+        }
+    });
+
+    // Синхронизация select -> radio
+    switcherSelect.addEventListener('change', () => {
+        const categoryInput = switcher.querySelector<HTMLInputElement>(
+            `input[name="options"][value="${switcherSelect.value}"]`
+        );
+
+        if (categoryInput) {
+            categoryInput.checked = true;
+            categoryInput.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+    });
     searchInput.addEventListener('input', renderCatalog);
 
     select.addEventListener('change', renderCatalog);
 
     priceFilter.updateTrack();
-
     cleanBtn.addEventListener('click', () => {
         searchInput.value = '';
         select.value = 'default';
+        switcherSelect.value = 'all';
 
-        const categoryInput = document.querySelector<HTMLInputElement>('input[name="options"][value="all"]');
+        const categoryInput = switcher.querySelector<HTMLInputElement>('input[name="options"][value="all"]');
 
         if (categoryInput) {
             categoryInput.checked = true;
         }
 
         priceFilter.reset();
-
         renderCatalog();
     });
     shop.append(catalog, showMoreBtn, message);
