@@ -242,3 +242,30 @@ option:hover {
     background-repeat: no-repeat;
     border-radius: 50%;
 }
+@media (max-width: 650px) {
+  .switcher,
+  .bottom-queries {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .switcher {
+    margin-bottom: 12px;
+  }
+
+  .bottom-queries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .price-filter{
+    min-width: 200px;
+  }
+  .switcher .option-category {
+    flex: 0;
+  }
+  .catalog{
+        width: min-content;
+  }
+}
