@@ -1,6 +1,7 @@
 .card {
     height: 420px;
     width: 290px;
+    min-width: 260px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -8,6 +9,7 @@
     border-radius: 30px;
     padding: 16px;
     box-shadow: 0 4px 14px rgba(24, 60, 48, 0.1);
+    flex: 1;
 }
 
 .gift-img {

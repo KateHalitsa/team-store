@@ -10,7 +10,7 @@
 .catalog {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: balance;
     max-width: 910px;
     margin: auto 0;
 }
