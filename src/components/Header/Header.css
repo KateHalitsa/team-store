@@ -69,3 +69,106 @@
     font-size: 12px;
     text-align: center;
 }
+
+.header__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--color-cream);
+    cursor: pointer;
+}
+
+.header__burger:hover {
+    color: var(--color-gold);
+}
+
+.header__burger:focus-visible,
+.header__link:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 4px;
+}
+
+.header__burger span {
+    display: block;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition:
+            transform 0.2s ease,
+            opacity 0.2s ease;
+}
+
+.header__burger[aria-expanded='true'] span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.header__burger[aria-expanded='true'] span:nth-child(2) {
+    opacity: 0;
+}
+
+.header__burger[aria-expanded='true'] span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .header__burger {
+        display: flex;
+    }
+
+    .header__nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--color-forest);
+        border-top: 1px solid var(--color-divider);
+        box-shadow: 0 8px 16px rgba(24, 60, 48, 0.25);
+
+        /* закрытое состояние */
+        visibility: hidden;
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+        transform: translateY(-8px);
+        transition:
+                clip-path 0.3s ease,
+                opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0s linear 0.3s;
+    }
+
+    .header__nav--open {
+        visibility: visible;
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        transform: translateY(0);
+        transition:
+                clip-path 0.3s ease,
+                opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0s;
+    }
+
+    .header__link {
+        padding: 16px;
+        border-bottom: 1px solid var(--color-divider);
+    }
+
+    .header__link:last-child {
+        border-bottom: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .header__nav,
+    .header__burger span {
+        transition: none;
+    }
+}
