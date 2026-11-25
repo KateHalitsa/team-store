@@ -78,3 +78,9 @@
 [data-status="Out of Stock"] {
     color: var(--color-burgundy);
 }
+@media (max-width: 632px) {
+    .card{
+        width: 290px;
+        margin: auto;
+    }
+}
