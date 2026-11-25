@@ -39,16 +39,17 @@ src/
 │   ├── PriceFilter/         # фильтр по цене
 │   ├── ProductCard/         # карточка товара
 │   ├── SortSelect/          # выбор сортировки
-│   └── SwitcherSelect/      # выпадающий список категорий для узких экранов
+│   ├── SwitcherSelect/      # выпадающий список категорий для узких экранов
+│   └── Toast/               # всплывающее уведомление
 ├── data/                    # products.json и тесты данных
 ├── features/
 │   ├── cart/                # логика корзины, cartStore (localStorage), тесты
 │   └── queries/             # поиск, фильтры и сортировка (getFiltered), тесты
 ├── pages/                   # AboutUs, Shop, Cart, NotFound
 ├── router/                  # роутер на History API и тесты
-├── styles/                  # переменные, глобальные стили, toast
+├── styles/                  # переменные и глобальные стили
 ├── types/                   # типы и список категорий (Gift, Category)
-└── utils/                   # createEl (dom.ts), toast.ts
+└── utils/                   # createEl (dom.ts)
 public/
 ├── gifts/                   # изображения товаров
 └── icons/                   # иконки
