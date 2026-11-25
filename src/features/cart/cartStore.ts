@@ -1,4 +1,4 @@
-import type { Gift } from '../types/types.ts';
+import type { Gift } from '../../types/types.ts';
 import { addToCart, changeQuantity, removeFromCart, isValidPromo, normalizePromo, type CartItem } from './cart';
 
 const STORAGE_KEY = 'evergreen-cart';

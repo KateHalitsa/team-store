@@ -1,5 +1,5 @@
 import type { Gift } from '../../types/types';
-import { cartStore } from '../../cart/cartStore';
+import { cartStore } from '../../features/cart/cartStore';
 import { showToast } from '../../utils/toast';
 
 export const ProductStatus = {
