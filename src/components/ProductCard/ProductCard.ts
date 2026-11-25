@@ -1,6 +1,6 @@
 import type { Gift } from '../../types/types';
 import { cartStore } from '../../features/cart/cartStore';
-import { showToast } from '../../utils/toast';
+import { showToast } from '../Toast/Toast';
 
 export const ProductStatus = {
     inStock: 'In Stock',
