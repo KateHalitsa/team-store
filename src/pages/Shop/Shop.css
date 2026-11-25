@@ -8,10 +8,11 @@
 }
 
 .catalog {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
     gap: 20px;
-    flex-wrap: balance;
     max-width: 910px;
+    width: 100%;
     margin: auto 0;
 }
 
@@ -268,9 +269,6 @@ option:hover {
         flex: 0;
     }
 
-    .catalog {
-        width: min-content;
-    }
     .search-input{
       max-width: 100%;
     }
