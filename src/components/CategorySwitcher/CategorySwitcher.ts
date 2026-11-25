@@ -1,10 +1,11 @@
+import { CATEGORY_OPTIONS } from '../../types/types';
 import { createEl } from '../../utils/dom';
-const options = ['all', 'ornaments', 'accessories', 'toys', 'food'];
 
 export function CategorySwitcher(onChange: () => void): HTMLElement {
     const switcher = createEl('div', { className: 'switcher' });
+    switcher.ariaLabel = 'aria-label';
 
-    options.forEach((option, i) => {
+    CATEGORY_OPTIONS.forEach((option, i) => {
         const input = createEl('input');
         input.id = `category${i + 1}`;
         input.type = 'radio';
