@@ -11,6 +11,8 @@ const links: NavLink[] = [
     { href: '/cart', label: 'Cart', showBadge: true },
 ];
 
+const DESKTOP_QUERY = '(min-width: 769px)';
+
 export function Header(): HTMLElement {
     const header = createEl('header', { className: 'header' });
     const banner = createEl('p', { className: 'header__banner', text: '✦ CHRISTMAS COLLECTION ✦' });
@@ -24,7 +26,15 @@ export function Header(): HTMLElement {
         createEl('span', { className: 'header__subtitle', text: 'Christmas Store' })
     );
 
+    const burger = createEl('button', { className: 'header__burger' });
+    burger.type = 'button';
+    burger.setAttribute('aria-label', 'Open menu');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'main-nav');
+    burger.append(createEl('span'), createEl('span'), createEl('span'));
+
     const nav = createEl('nav', { className: 'header__nav' });
+    nav.id = 'main-nav';
     nav.setAttribute('aria-label', 'Main navigation');
 
     let cartBadge: HTMLElement | null = null;
@@ -44,8 +54,33 @@ export function Header(): HTMLElement {
         nav.append(link);
     });
 
-    bar.append(brand, nav);
+    bar.append(brand, burger, nav);
     header.append(banner, bar);
+
+    const setMenuOpen = (open: boolean): void => {
+        nav.classList.toggle('header__nav--open', open);
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+
+    burger.addEventListener('click', () => {
+        setMenuOpen(burger.getAttribute('aria-expanded') !== 'true');
+    });
+
+    nav.addEventListener('click', (event) => {
+        if (event.target instanceof Element && event.target.closest('a')) setMenuOpen(false);
+    });
+
+    document.addEventListener('click', (event) => {
+        if (event.target instanceof Node && !header.contains(event.target)) setMenuOpen(false);
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setMenuOpen(false);
+    });
+
+    window.matchMedia(DESKTOP_QUERY).addEventListener('change', (event) => {
+        if (event.matches) setMenuOpen(false);
+    });
 
     const updateActive = (): void => {
         header.querySelectorAll<HTMLAnchorElement>('.header__link').forEach((link) => {
@@ -68,7 +103,10 @@ export function Header(): HTMLElement {
     updateCount();
     cartStore.subscribe(updateCount);
 
-    window.addEventListener('routechange', updateActive);
+    window.addEventListener('routechange', () => {
+        updateActive();
+        setMenuOpen(false);
+    });
     updateActive();
 
     return header;
