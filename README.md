@@ -37,9 +37,10 @@ src/
 │   ├── AddCards/
 │   ├── CategorySwitcher/    # переключатель категорий
 │   ├── Header/              # шапка, навигация, счётчик корзины
-│   ├── PriceFilter.ts       # фильтр по цене
+│   ├── PriceFilter/         # фильтр по цене
 │   ├── ProductCard/         # карточка товара
-│   └── SortSelect/          # выбор сортировки
+│   ├── SortSelect/          # выбор сортировки
+│   └── SwitcherSelect/      # выпадающий список категорий для узких экранов
 ├── data/                    # products.json и тесты данных
 ├── features/
 │   └── queries/             # поиск, фильтры и сортировка (getFiltered) и тесты
