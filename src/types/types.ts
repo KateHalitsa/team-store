@@ -6,4 +6,6 @@ export type Gift = {
     image: string;
     category: Category;
 };
-type Category = 'food' | 'ornaments' | 'toys' | 'accessories';
+export const CATEGORIES = ['food', 'ornaments', 'toys', 'accessories'] as const;
+export type Category = (typeof CATEGORIES)[number];
+export const CATEGORY_OPTIONS = ['all', ...CATEGORIES] as const;
