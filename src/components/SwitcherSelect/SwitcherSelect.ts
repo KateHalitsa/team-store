@@ -1,10 +1,11 @@
+import { CATEGORY_OPTIONS } from '../../types/types';
+
 export function createSwitcherSelect(): HTMLSelectElement {
     const select = document.createElement('select');
     select.className = 'switcher-select';
+    select.ariaLabel = 'aria-label';
 
-    const categories = ['all', 'ornaments', 'accessories', 'toys', 'food'];
-
-    categories.forEach((category) => {
+    CATEGORY_OPTIONS.forEach((category) => {
         const option = document.createElement('option');
         option.value = category;
         option.textContent = category;

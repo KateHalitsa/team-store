@@ -4,7 +4,7 @@ import type { Gift } from '../../types/types';
 import { createEl } from '../../utils/dom';
 import '../../components/ProductCard/ProductCard.css';
 import './Shop.css';
-import { PriceFilter } from '../../components/PriceFilter.ts/PriceFilter';
+import { PriceFilter } from '../../components/PriceFilter/PriceFilter';
 import { CategorySwitcher } from '../../components/CategorySwitcher/CategorySwitcher';
 import { SortSelect } from '../../components/SortSelect/SortSelect';
 import { createSwitcherSelect } from '../../components/SwitcherSelect/SwitcherSelect';
