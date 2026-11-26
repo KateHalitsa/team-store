@@ -25,3 +25,38 @@ p {
 main {
     padding: 24px 16px;
 }
+
+/* Background for shop and cart pages */
+
+body:has(.shop)::before,
+body:has(.cart)::before {
+    content: '';
+    position: fixed;
+    inset: -10px;
+    z-index: -2;
+    background: url('/images/bg-shop-cart.jpg') center / cover no-repeat;
+    filter: blur(5px);
+}
+
+body:has(.shop)::after,
+body:has(.cart)::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+            rgba(255, 248, 235, 0.62),
+            rgba(255, 248, 235, 0.72)
+    );
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+    body:has(.shop)::before,
+    body:has(.cart)::before,
+    body:has(.shop)::after,
+    body:has(.cart)::after {
+        display: none;
+    }
+}
