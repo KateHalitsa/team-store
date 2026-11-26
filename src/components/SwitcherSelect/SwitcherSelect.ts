@@ -1,4 +1,5 @@
 import { CATEGORY_OPTIONS } from '../../types/types';
+import './SwitcherSelect.css';
 
 export function createSwitcherSelect(): HTMLSelectElement {
     const select = document.createElement('select');

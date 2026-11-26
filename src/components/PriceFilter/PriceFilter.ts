@@ -1,4 +1,5 @@
 import { createEl } from '../../utils/dom';
+import './PriceFilter.css';
 
 export function PriceFilter(
     onChange: () => void,
