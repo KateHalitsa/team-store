@@ -1,4 +1,4 @@
-import type { Gift } from '../types/types.ts';
+import type { Gift } from '../../types/types.ts';
 
 export type CartItem = Gift & { quantity: number };
 

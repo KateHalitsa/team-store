@@ -1,5 +1,6 @@
 import { CATEGORY_OPTIONS } from '../../types/types';
 import { createEl } from '../../utils/dom';
+import './CategorySwitcher.css';
 
 export function CategorySwitcher(onChange: () => void): HTMLElement {
     const switcher = createEl('div', { className: 'switcher' });

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { addToCart, calculateOrderTotal, changeQuantity, removeFromCart, type CartItem } from './cart';
-import type { Gift } from '../types/types.ts';
+import type { Gift } from '../../types/types.ts';
 
 const ball: Gift = { id: 'ball', name: 'Ball', cost: 15, amount: 3, image: '', category: 'ornaments' };
 const carousel: Gift = { id: 'car', name: 'Carousel', cost: 50, amount: 4, image: '', category: 'toys' };

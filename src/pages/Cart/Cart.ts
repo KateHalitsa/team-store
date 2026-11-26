@@ -1,5 +1,5 @@
-import { cartStore } from '../../cart/cartStore';
-import { calculateOrderTotal, isValidPromo, type CartItem } from '../../cart/cart';
+import { cartStore } from '../../features/cart/cartStore';
+import { calculateOrderTotal, isValidPromo, type CartItem } from '../../features/cart/cart';
 import { createEl } from '../../utils/dom';
 import './Cart.css';
 

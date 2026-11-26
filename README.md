@@ -32,24 +32,27 @@ npm run lint
 ```text
 src/
 ├── main.ts                  # точка входа: Header, роутер
-├── cart/                    # логика корзины и cartStore (localStorage), тесты
 ├── components/
-│   ├── AddCards/
+│   ├── AddCards/            # подгрузка карточек порциями («More») и тесты
 │   ├── CategorySwitcher/    # переключатель категорий
-│   ├── Header/              # шапка, навигация, счётчик корзины
+│   ├── Header/              # шапка, навигация, бургер-меню, счётчик корзины
 │   ├── PriceFilter/         # фильтр по цене
 │   ├── ProductCard/         # карточка товара
 │   ├── SortSelect/          # выбор сортировки
-│   └── SwitcherSelect/      # выпадающий список категорий для узких экранов
+│   ├── SwitcherSelect/      # выпадающий список категорий для узких экранов
+│   └── Toast/               # всплывающее уведомление
 ├── data/                    # products.json и тесты данных
 ├── features/
-│   └── queries/             # поиск, фильтры и сортировка (getFiltered) и тесты
+│   ├── cart/                # логика корзины, cartStore (localStorage), тесты
+│   └── queries/             # поиск, фильтры и сортировка (getFiltered), тесты
 ├── pages/                   # AboutUs, Shop, Cart, NotFound
 ├── router/                  # роутер на History API и тесты
 ├── styles/                  # переменные и глобальные стили
-├── types/                   # типы (Gift, Category)
-└── utils/                   # createEl (dom.ts), toast.ts
-public/                      # изображения товаров, _redirects для Netlify (SPA)
+├── types/                   # типы и список категорий (Gift, Category)
+└── utils/                   # createEl (dom.ts)
+public/
+├── gifts/                   # изображения товаров
+└── icons/                   # иконки
 netlify.toml                 # настройки деплоя
 ```
 

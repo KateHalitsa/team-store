@@ -1,6 +1,6 @@
 import './Header.css';
-import { cartStore } from '../../cart/cartStore';
-import { getCartCount } from '../../cart/cart';
+import { cartStore } from '../../features/cart/cartStore';
+import { getCartCount } from '../../features/cart/cart';
 import { createEl } from '../../utils/dom';
 
 type NavLink = { href: string; label: string; showBadge?: boolean };

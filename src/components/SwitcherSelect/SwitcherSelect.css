@@ -1,0 +1,12 @@
+.switcher-select {
+    display: none;
+    text-transform: capitalize;
+}
+@media (max-width: 660px) {
+    .switcher-select {
+      display: flex;
+      width: 100%;
+      padding: 10px;
+      margin-right: auto;
+    }
+}

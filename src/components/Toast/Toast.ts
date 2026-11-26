@@ -1,3 +1,5 @@
+import './Toast.css';
+
 export function showToast(message: string): void {
     const toast = document.createElement('div');
     toast.classList.add('toast');
