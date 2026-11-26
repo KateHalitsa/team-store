@@ -1,0 +1,262 @@
+.about {
+    padding-bottom: 48px;
+}
+
+/* Hero */
+
+.about-hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: clamp(460px, 44vw, 620px);
+    margin: -24px -16px 0;
+    padding: 48px max(48px, calc((100% - 1100px) / 2));
+    border-radius: 0;
+    color: var(--color-white);
+    background:
+            linear-gradient(90deg, rgb(110 20 30 / 0%) 25%, rgb(110 20 30 / 45%) 100%),
+            url('/images/hero-christmas.jpg') left center / cover no-repeat;
+}
+
+.about-hero__content {
+    max-width: 480px;
+}
+
+.about-hero__title {
+    margin: 0 0 8px;
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    line-height: 1.1;
+}
+
+.about-hero__lead {
+    margin: 0 0 18px;
+    font-size: 1.35rem;
+    color: var(--color-gold-light);
+}
+
+.about-hero__text {
+    margin: 0 0 28px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.about-hero__cta {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-forest);
+    background: var(--color-cream);
+    transition: background-color 0.2s;
+}
+
+.about-hero__cta:hover {
+    background: var(--color-gold-light);
+}
+
+.about-hero__cta:focus-visible,
+.about-member__link:focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 3px;
+}
+
+/* Sections */
+
+.about-section {
+    max-width: 1100px;
+    margin: 64px auto 0;
+}
+
+.about-section__title {
+    margin: 0 0 32px;
+    text-align: center;
+    font-size: 1.75rem;
+    color: var(--color-forest);
+}
+
+.about-section__title::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin: 12px auto 0;
+    border-radius: 2px;
+    background: var(--color-gold);
+}
+
+/* Dark block with photo background (features + team) */
+
+.about-dark {
+    margin: 0 -16px;
+    border-top: 3px solid var(--color-gold);
+    padding: 72px 16px;
+    color: var(--color-cream);
+    background:
+            linear-gradient(rgb(11 36 28 / 35%), rgb(11 36 28 / 35%)),
+            url('/images/about-bg.jpg') center top / cover no-repeat;
+}
+
+.about-dark__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.about-dark .about-section {
+    max-width: none;
+    margin: 0;
+}
+
+.about-dark .about-section + .about-section {
+    margin-top: 72px;
+    padding-top: 64px;
+    border-top: 1px solid rgb(213 184 117 / 35%);
+}
+
+.about-dark .about-section__title {
+    color: var(--color-cream);
+}
+
+/* Features */
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+}
+
+.about-feature {
+    text-align: center;
+}
+
+.about-feature__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+    font-size: 1.6rem;
+    background: rgb(11 36 28 / 55%);
+}
+
+.about-feature__title {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+    color: var(--color-gold-light);
+}
+
+.about-feature__text {
+    margin: 0 auto;
+    max-width: 300px;
+    line-height: 1.6;
+    color: var(--color-beige-text);
+}
+
+/* Team */
+
+.about-team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 24px;
+}
+
+.about-member {
+    padding: 28px;
+    border: 1px solid rgb(213 184 117 / 40%);
+    border-radius: 20px;
+    background: rgb(11 36 28 / 62%);
+    backdrop-filter: blur(4px);
+}
+
+.about-member__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.about-member__avatar {
+    flex-shrink: 0;
+    width: 88px;
+    height: 88px;
+    border: 3px solid var(--color-gold);
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--color-forest);
+}
+
+.about-member__name {
+    margin: 0 0 4px;
+    font-size: 1.3rem;
+    color: var(--color-white);
+}
+
+.about-member__link {
+    color: var(--color-gold-light);
+}
+
+.about-member__list {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.6;
+    color: var(--color-cream);
+}
+
+.about-member__list li::marker {
+    color: var(--color-gold);
+}
+
+.about-member__list li + li {
+    margin-top: 6px;
+}
+
+/* Stack */
+
+.about-stack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.about-stack__chip {
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    color: var(--color-gold-light);
+    background: var(--color-forest);
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+    .about-hero {
+        align-items: flex-end;
+        justify-content: flex-start;
+        min-height: 560px;
+        padding: 24px;
+        background:
+                linear-gradient(0deg, rgb(110 20 30 / 85%) 0%, rgb(110 20 30 / 0%) 70%),
+                url('/images/hero-christmas.jpg') 15% center / cover no-repeat;
+    }
+
+    .about-section {
+        margin-top: 48px;
+    }
+
+    .about-dark {
+        padding: 56px 16px;
+    }
+
+    .about-dark .about-section + .about-section {
+        margin-top: 56px;
+        padding-top: 48px;
+    }
+}
