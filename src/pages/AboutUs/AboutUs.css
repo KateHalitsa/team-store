@@ -234,6 +234,31 @@
 }
 
 
+/* Tablet */
+
+@media (min-width: 701px) and (max-width: 950px) {
+    .about-hero {
+        background:
+                linear-gradient(
+                        90deg,
+                        rgb(90 14 24 / 0%) calc(100% - 760px),
+                        rgb(90 14 24 / 10%) calc(100% - 700px),
+                        rgb(90 14 24 / 30%) calc(100% - 650px),
+                        rgb(90 14 24 / 55%) calc(100% - 600px),
+                        rgb(90 14 24 / 75%) calc(100% - 550px),
+                        rgb(85 13 22 / 85%) calc(100% - 500px),
+                        rgb(80 12 20 / 90%) 100%
+                ),
+                url('/images/hero-christmas.jpg') left center / cover no-repeat;
+    }
+
+    .about-hero__title,
+    .about-hero__lead,
+    .about-hero__text {
+        text-shadow: 0 1px 3px rgb(0 0 0 / 45%);
+    }
+}
+
 /* Mobile */
 
 @media (max-width: 700px) {
