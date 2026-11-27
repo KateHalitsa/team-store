@@ -240,11 +240,31 @@
     .about-hero {
         align-items: flex-end;
         justify-content: flex-start;
-        min-height: 560px;
-        padding: 24px;
-        background:
-                linear-gradient(0deg, rgb(110 20 30 / 85%) 0%, rgb(110 20 30 / 0%) 70%),
-                url('/images/hero-christmas.jpg') 15% center / cover no-repeat;
+        min-height: 620px;
+        padding: 0;
+        background: url('/images/hero-christmas.jpg') 15% center / cover no-repeat;
+    }
+
+    .about-hero__content {
+        max-width: none;
+        width: 100%;
+        padding: 140px 24px 28px;
+        background: linear-gradient(
+                180deg,
+                rgb(80 12 20 / 0%) 0,
+                rgb(80 12 20 / 8%) 20px,
+                rgb(80 12 20 / 25%) 50px,
+                rgb(80 12 20 / 50%) 85px,
+                rgb(80 12 20 / 72%) 115px,
+                rgb(80 12 20 / 86%) 140px,
+                rgb(80 12 20 / 92%) 100%
+        );
+    }
+
+    .about-hero__title,
+    .about-hero__lead,
+    .about-hero__text {
+        text-shadow: 0 1px 3px rgb(0 0 0 / 45%);
     }
 
     .about-section {
