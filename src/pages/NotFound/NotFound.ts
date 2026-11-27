@@ -1,9 +1,14 @@
 import { createEl } from '../../utils/dom';
+import './NotFound.css';
 
 export function NotFound(): HTMLElement {
     const section = createEl('section', { className: 'not-found' });
 
-    const homeLink = createEl('a', { text: 'Back to home' });
+    const homeLink = createEl('a', {
+        className: 'not-found__link',
+        text: 'Back to home',
+    });
+
     homeLink.href = '/';
     homeLink.dataset.link = '';
 
@@ -12,5 +17,6 @@ export function NotFound(): HTMLElement {
         createEl('p', { text: 'The page you are looking for does not exist.' }),
         homeLink
     );
+
     return section;
 }

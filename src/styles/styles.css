@@ -9,10 +9,18 @@
 body {
     margin: 0;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background: var(--color-cream);
     color: var(--color-green-dark-text);
     font-family: var(--font-main);
     line-height: 1.5;
+}
+
+#app {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 h1,
@@ -23,13 +31,15 @@ p {
 }
 
 main {
+    flex: 1;
     padding: 24px 16px;
 }
 
-/* Background for shop and cart pages */
+/* Background for Shop, Cart and NotFound pages */
 
 body:has(.shop)::before,
-body:has(.cart)::before {
+body:has(.cart)::before,
+body:has(.not-found)::before {
     content: '';
     position: fixed;
     inset: -10px;
@@ -39,7 +49,8 @@ body:has(.cart)::before {
 }
 
 body:has(.shop)::after,
-body:has(.cart)::after {
+body:has(.cart)::after,
+body:has(.not-found)::after {
     content: '';
     position: fixed;
     inset: 0;
@@ -55,8 +66,10 @@ body:has(.cart)::after {
 @media (max-width: 700px) {
     body:has(.shop)::before,
     body:has(.cart)::before,
+    body:has(.not-found)::before,
     body:has(.shop)::after,
-    body:has(.cart)::after {
+    body:has(.cart)::after,
+    body:has(.not-found)::after {
         display: none;
     }
 }
